@@ -54,7 +54,12 @@ Inspect every Lintian result rather than overriding it:
 
 Run the installed-package tests against the generated binary packages:
 
-    autopkgtest ../xviewer_3.4.16+ds-1_*.changes -- null
+    autopkgtest ../xviewer_3.4.16+ds-1_amd64.changes \
+      -- schroot unstable-amd64-sbuild
+
+Replace amd64 with the architecture being tested. The null testbed is also
+usable on a disposable test virtual machine, but it installs packages directly
+on that machine and provides less isolation than the schroot testbed.
 
 Also install the generated packages in a fresh graphical Debian virtual
 machine and manually test image opening, navigation, zoom, rotation, save,
