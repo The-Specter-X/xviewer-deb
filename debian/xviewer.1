@@ -1,0 +1,45 @@
+.TH XVIEWER 1 "September 2026" "Xviewer 3.4.16" "User Commands"
+.SH NAME
+xviewer \- view and inspect image files
+.SH SYNOPSIS
+.B xviewer
+.RI [ OPTION... ]
+.RI [ FILE... ]
+.SH DESCRIPTION
+.B xviewer
+is a GTK image viewer. It supports navigation through collections of images,
+zooming, rotation, fullscreen and slideshow modes, printing, metadata display,
+and plugins.
+.SH OPTIONS
+.TP
+.BR \-f ", " \-\-fullscreen
+Open in fullscreen mode.
+.TP
+.BR \-g ", " \-\-disable-gallery
+Disable the image gallery.
+.TP
+.BR \-s ", " \-\-slide-show
+Open in slideshow mode.
+.TP
+.BR \-n ", " \-\-new-instance
+Start a new instance instead of reusing an existing one.
+.TP
+.BR \-w ", " \-\-single-window
+Reuse the first existing window when multiple windows are open.
+.TP
+.B \--version
+Display the Xviewer version and exit.
+.TP
+.BR \-? ", " \--help
+Display command-line help and exit.
+.SH FILES
+.TP
+.I ~/.config/xviewer/
+Per-user configuration data.
+.SH BUGS
+Report upstream bugs at https://github.com/linuxmint/xviewer/issues.
+.PP
+Report Debian packaging bugs through the Debian Bug Tracking System after the
+package has entered Debian.
+.SH SEE ALSO
+.BR gdk-pixbuf-query-loaders (1)

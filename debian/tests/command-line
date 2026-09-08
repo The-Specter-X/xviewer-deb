@@ -1,0 +1,11 @@
+#!/bin/sh
+set -eu
+
+xviewer --version | grep -Eq '^Xviewer [0-9]'
+xviewer --help >/dev/null
+
+test -f /usr/share/applications/xviewer.desktop
+test -f /usr/share/metainfo/xviewer.appdata.xml
+test -f /usr/share/glib-2.0/schemas/org.x.viewer.gschema.xml
+
+gsettings list-schemas | grep -Fxq org.x.viewer

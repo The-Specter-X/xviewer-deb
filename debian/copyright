@@ -1,0 +1,116 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: xviewer
+Upstream-Contact: Linux Mint <root@linuxmint.com>
+Source: https://github.com/linuxmint/xviewer
+Files-Excluded: debian
+Comment: The upstream debian directory contains Linux Mint packaging and is
+ excluded from the Debian orig tarball to avoid mixing the two packaging
+ histories.
+
+Files: *
+Copyright: 1999 Michael Zucchi
+           1999-2004 Red Hat, Inc.
+           2000-2010 Free Software Foundation, Inc.
+           2003-2004 Marco Pesenti Gritti
+           2003-2005 Christian Persch
+           2004-2006 Bastien Nocera
+           2005 Raphael Slinckx
+           2006-2016 Eye of GNOME contributors
+           2016-2026 Linux Mint and Xviewer contributors
+License: GPL-2+
+
+Files: src/xviewer-image-jpeg.c
+Copyright: 1999 Michael Zucchi
+           1999 Red Hat, Inc.
+           1999 Free Software Foundation, Inc.
+License: LGPL-2+
+
+Files: jpegutils/README.6b
+       jpegutils/README.8a
+       jpegutils/jpegint-8a.h
+       jpegutils/transupp-6b.c
+       jpegutils/transupp-6b.h
+       jpegutils/transupp-8a.c
+       jpegutils/transupp-8a.h
+Copyright: 1991-2010 Thomas G. Lane, Guido Vollbeding, and members of the
+ Independent JPEG Group
+           2001-2002 Free Software Foundation, Inc.
+License: IJG and GPL-2+
+
+Files: data/icons/*/actions/slideshow-play.svg
+Copyright: Lapo Calamandrei
+           Hylke Bons
+License: LGPL-2+
+
+Files: data/icons/*/actions/xviewer-plugin.svg
+Copyright: 2005 Jakub Steiner
+License: GPL-2+
+
+Files: help/*
+Copyright: 2011 Tiffany Antopolski
+           GNOME Documentation Project contributors
+           Xviewer documentation translators
+License: CC-BY-SA-3.0
+
+Files: debian/*
+       .gitlab-ci.yml
+Copyright: 2026 Specter <thespecter@tuta.com>
+License: GPL-2+
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or modify it
+ under the terms of the GNU Lesser General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or (at your
+ option) any later version.
+ .
+ This library is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+ for more details.
+ .
+ On Debian systems, the complete text of the GNU Lesser General Public
+ License version 2 can be found in "/usr/share/common-licenses/LGPL-2".
+
+License: CC-BY-SA-3.0
+ This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
+ Unported license.
+ .
+ You are free to share and adapt this work for any purpose, provided that
+ appropriate credit is given, a link to the license is supplied, and changes
+ are indicated. If you remix, transform, or build upon the material, you must
+ distribute your contributions under the same license as the original.
+ .
+ The complete license text is available at
+ https://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+License: IJG
+ The authors make no warranty or representation, either express or implied,
+ with respect to this software, its quality, accuracy, merchantability, or
+ fitness for a particular purpose. This software is provided "AS IS", and
+ its user assumes the entire risk as to its quality and accuracy.
+ .
+ Permission is granted to use, copy, modify, and distribute this software, or
+ portions thereof, for any purpose without fee, provided that source
+ distributions include the relevant README file with its copyright and
+ no-warranty notice unaltered and clearly identify changes. Executable-only
+ distributions must acknowledge that the software is based in part on the
+ work of the Independent JPEG Group. The authors accept no liability for
+ damages of any kind.
+ .
+ Permission is not granted to use an Independent JPEG Group author's name or
+ company name in advertising or publicity relating to this software. The
+ software may be referred to only as "the Independent JPEG Group's software".

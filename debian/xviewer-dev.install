@@ -1,0 +1,4 @@
+usr/include/xviewer
+usr/lib/*/pkgconfig/xviewer.pc
+usr/share/gtk-doc
+usr/share/xviewer/gir-1.0

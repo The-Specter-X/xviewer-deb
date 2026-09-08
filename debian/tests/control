@@ -1,0 +1,12 @@
+Tests: command-line
+Depends:
+ @,
+ libglib2.0-bin,
+Restrictions: superficial
+
+Tests: graphical-smoke
+Depends:
+ @,
+ dbus-x11,
+ xvfb,
+Restrictions: allow-stderr

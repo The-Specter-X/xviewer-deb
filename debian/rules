@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@ --buildsystem=meson
+
+override_dh_auto_configure:
+	dh_auto_configure --buildsystem=meson -- \
+		-Ddeprecated_warnings=false \
+		-Ddocs=true \
+		-Dexempi=enabled \
+		-Dexif=enabled \
+		-Djpeg=enabled \
+		-Dlcms=enabled \
+		-Drsvg=enabled
+
+# Xviewer installs its typelib below a private library directory.
+override_dh_girepository:
+	dh_girepository /usr/lib/$(DEB_HOST_MULTIARCH)/xviewer

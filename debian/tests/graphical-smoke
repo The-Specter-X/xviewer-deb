@@ -1,0 +1,15 @@
+#!/bin/sh
+set -eu
+
+test_directory=${AUTOPKGTEST_TMP:-"$(mktemp -d)"}
+test_image="${test_directory}/xviewer-smoke.ppm"
+
+printf 'P3\n2 2\n255\n255 0 0  0 255 0\n0 0 255  255 255 255\n' >"${test_image}"
+
+dbus-run-session -- xvfb-run -a sh -eu -c '
+    xviewer --new-instance "$1" &
+    xviewer_pid=$!
+    trap "kill ${xviewer_pid} 2>/dev/null || true" EXIT INT TERM
+    sleep 5
+    kill -0 "${xviewer_pid}"
+' sh "${test_image}"

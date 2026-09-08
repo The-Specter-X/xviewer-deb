@@ -1,0 +1,5 @@
+xviewer (3.4.16+ds-1) UNRELEASED; urgency=medium
+
+  * Initial release for Debian. (Closes: #830615)
+
+ -- Specter <thespecter@tuta.com>  Tue, 08 Sep 2026 17:00:00 +0300
