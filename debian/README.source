@@ -65,6 +65,15 @@ Also install the generated packages in a fresh graphical Debian virtual
 machine and manually test image opening, navigation, zoom, rotation, save,
 print preview, fullscreen, slideshow, metadata, and help.
 
+Salsa continuous integration
+----------------------------
+
+The root .gitlab-ci.yml starts Salsa CI automatically when this repository is
+imported as a Salsa project. Debian's preferred long-term setup is to select
+debian/salsa-ci.yml as the project's CI/CD configuration file in Salsa. Both
+files include the same official Debian recipe; keep only the active entry if a
+sponsor or packaging team requests that the duplicate be removed.
+
 Before requesting sponsorship
 -----------------------------
 
