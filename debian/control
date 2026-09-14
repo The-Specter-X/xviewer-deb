@@ -1,9 +1,9 @@
 Source: xviewer
 Section: graphics
 Priority: optional
-Maintainer: Specter <thespecter@tuta.com>
+Maintainer: James Arden <theoverseer@tuta.com>
 Build-Depends:
- debhelper-compat (= 14),
+ debhelper-compat (= 13),
  dh-sequence-gir,
  gettext,
  gir1.2-gtk-3.0-dev,

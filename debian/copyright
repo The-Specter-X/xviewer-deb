@@ -54,7 +54,8 @@ License: CC-BY-SA-3.0
 
 Files: debian/*
        .gitlab-ci.yml
-Copyright: 2026 Specter <thespecter@tuta.com>
+       PACKAGING.md
+Copyright: 2026 James Arden <theoverseer@tuta.com>
 License: GPL-2+
 
 License: GPL-2+
