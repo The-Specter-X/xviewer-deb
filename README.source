@@ -1,0 +1,88 @@
+Xviewer packaging for Debian
+============================
+
+Repository layout
+-----------------
+
+The main branch is the Debian packaging branch. The upstream/latest branch
+contains imported upstream releases, and the pristine-tar branch contains the
+metadata required to reproduce orig tarballs.
+
+The initial repository contains only Debian packaging. Import the upstream
+source before attempting a package build.
+
+Preparing the 3.4.16+ds upstream source
+---------------------------------------
+
+Linux Mint did not publish a semantic 3.4.16 source tag. Its master.lmde7
+release points to commit 74d7d4ba2584c658ae6fb87208543671664943cc, whose
+Meson project version is 3.4.16. The exact commit archive is used so that the
+input cannot change if Linux Mint moves a release tag.
+
+Run the following commands from the repository root:
+
+    upstream_version=3.4.16
+    upstream_commit=74d7d4ba2584c658ae6fb87208543671664943cc
+    wget -O ../xviewer-${upstream_version}.tar.gz \
+      https://github.com/linuxmint/xviewer/archive/${upstream_commit}/xviewer-${upstream_version}.tar.gz
+    mk-origtargz --package xviewer --version ${upstream_version}+ds \
+      --repack --compression xz ../xviewer-${upstream_version}.tar.gz
+    gbp import-orig --pristine-tar --upstream-version=${upstream_version}+ds \
+      ../xviewer_${upstream_version}+ds.orig.tar.xz
+
+The Files-Excluded field in debian/copyright removes Linux Mint's debian
+directory from the orig tarball. The +ds suffix records that repacking.
+
+The watch file is ready for future semantic version tags. It cannot discover
+the current master.lmde7 tag because that tag does not contain the upstream
+version number. Check upstream's Meson version and releases manually until
+upstream starts publishing semantic version tags.
+
+Building and checking
+---------------------
+
+Build an unsigned source package, then rebuild that source package in a clean
+Debian unstable environment:
+
+    dpkg-buildpackage --build=source --no-sign
+    sbuild -d unstable ../xviewer_3.4.16+ds-1.dsc
+
+Inspect every Lintian result rather than overriding it:
+
+    lintian --display-info --display-experimental --pedantic \
+      ../xviewer_3.4.16+ds-1_*.changes
+
+Run the installed-package tests against the generated binary packages:
+
+    autopkgtest ../xviewer_3.4.16+ds-1_amd64.changes \
+      -- schroot unstable-amd64-sbuild
+
+Replace amd64 with the architecture being tested. The null testbed is also
+usable on a disposable test virtual machine, but it installs packages directly
+on that machine and provides less isolation than the schroot testbed.
+
+Also install the generated packages in a fresh graphical Debian virtual
+machine and manually test image opening, navigation, zoom, rotation, save,
+print preview, fullscreen, slideshow, metadata, and help.
+
+Salsa continuous integration
+----------------------------
+
+The root .gitlab-ci.yml starts Salsa CI automatically when this repository is
+imported as a Salsa project. Debian's preferred long-term setup is to select
+debian/salsa-ci.yml as the project's CI/CD configuration file in Salsa. Both
+files include the same official Debian recipe; keep only the active entry if a
+sponsor or packaging team requests that the duplicate be removed.
+
+Before requesting sponsorship
+-----------------------------
+
+Keep the changelog distribution as UNRELEASED while developing. After clean
+builds and tests, use dch --release --distribution unstable to finalize it.
+Build and sign the source package with debuild -S -sa, upload the resulting
+source changes file to mentors.debian.net, and file a Request for Sponsorship.
+
+Bug #830615 is the existing Request for Package for Xviewer. Retitle it to an
+Intent To Package and set yourself as its owner before requesting sponsorship.
+The changelog's Closes entry will close it only after the package is accepted
+into the Debian archive.
